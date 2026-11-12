@@ -26,6 +26,7 @@ API_AID = re.compile(r"^([a-z0-9]+(?:-[a-z0-9]+)*):([a-z0-9]+(?:-[a-z0-9]+)*)$")
 ARTIFACT_WORDS = re.compile(r"(^|-)(openapi|swagger|asyncapi|json|yaml|yml|spec|specification)(-|$)")
 VERSION = re.compile(r"(^|-)v\d+(-\d+)*$")
 COMMON_TLDS = ("com", "io", "ai", "net", "org", "co", "dev", "app", "tech", "us", "gov", "edu")
+DERIVE_STRIP = re.compile(r"(^|-)(openapi|swagger|asyncapi|yaml|yml|spec|specification)(?=-|$)")
 GENERIC = {"api", "apis", "rest-api", "public-api", "main", "default", "core", "v1", "v2"}
 
 
@@ -45,7 +46,7 @@ def derive_api_slug(provider_aid, name):
         if s.startswith(p + "-"):
             s = s[len(p) + 1:]
             break
-    s = ARTIFACT_WORDS.sub("-", s).strip("-")
+    s = DERIVE_STRIP.sub("-", s).strip("-")  # keeps json: JSON-RPC is a protocol, not a format
     s = re.sub(r"(-api)+$", "", s)
     s = re.sub(r"-{2,}", "-", s).strip("-") or "api"
     return f"{provider_aid}:{s}"
