@@ -1,0 +1,7 @@
+# Legacy-but-valid: passes every MUST rule, raises SHOULD warnings (A1, A2).
+# This is the shape of most of the apis.io catalog today, and it stays valid.
+aid: example-weather-com
+name: Example Weather API
+apis:
+  - aid: example-weather-com:example-weather-com-forecasts-api
+    name: Forecasts API

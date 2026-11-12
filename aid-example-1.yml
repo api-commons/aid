@@ -1,0 +1,13 @@
+# A conformant document. Example Weather API is fictional.
+aid: example-weather-com
+name: Example Weather API
+url: https://weather.example.com/apis.yml
+apis:
+  - aid: example-weather-com:forecasts
+    name: Forecasts API
+  - aid: example-weather-com:alerts
+    name: Severe Weather Alerts API
+  - aid: example-weather-com:historical-observations
+    name: Historical Observations API
+    x-aid-aliases:
+      - example-weather-com:example-weather-com-history-api

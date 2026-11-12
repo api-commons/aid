@@ -1,0 +1,146 @@
+{
+ "counts": {
+  "documents": 41092,
+  "api_aids": 193626,
+  "api_entries": 200084,
+  "documents_failing": 4236
+ },
+ "rules": {
+  "A1": 178138,
+  "A2": 181617,
+  "A3": 706,
+  "A4": 186,
+  "A5": 155,
+  "M1": 7202,
+  "M2": 193,
+  "M3": 82,
+  "M4": 362,
+  "M5": 65,
+  "M6": 53,
+  "M7-api-collision": 128,
+  "M7-provider-collision": 21,
+  "P2": 141
+ },
+ "examples": {
+  "A1": [
+   "00widget-com: apis[0] A1 API aid '00widget-com:00widget-com-api' repeats the provider in the slug",
+   "01-ai: apis[1] A1 API aid '01-ai:01-ai-chat-completions-api' repeats the provider in the slug",
+   "01mind-net: apis[2] A1 API aid '01mind-net:01mind-net-campaigns-api' repeats the provider in the slug",
+   "01mind-net: apis[3] A1 API aid '01mind-net:01mind-net-charon-api' repeats the provider in the slug",
+   "01mind-net: apis[4] A1 API aid '01mind-net:01mind-net-document-templates-api' repeats the provider in the slug",
+   "01mind-net: apis[5] A1 API aid '01mind-net:01mind-net-execute-api' repeats the provider in the slug"
+  ],
+  "A2": [
+   "00widget-com: apis[0] A2 API aid '00widget-com:00widget-com-api' ends in -api",
+   "01-ai: apis[1] A2 API aid '01-ai:01-ai-chat-completions-api' ends in -api",
+   "01mind-net: apis[2] A2 API aid '01mind-net:01mind-net-campaigns-api' ends in -api",
+   "01mind-net: apis[3] A2 API aid '01mind-net:01mind-net-charon-api' ends in -api",
+   "01mind-net: apis[4] A2 API aid '01mind-net:01mind-net-document-templates-api' ends in -api",
+   "01mind-net: apis[5] A2 API aid '01mind-net:01mind-net-execute-api' ends in -api"
+  ],
+  "M1": [
+   "0g-labs: apis[0] M1 API entry has no aid",
+   "0g-labs: apis[1] M1 API entry has no aid",
+   "0g-labs: apis[2] M1 API entry has no aid",
+   "0xarchive: apis[0] M1 API entry has no aid",
+   "0xarchive: apis[1] M1 API entry has no aid",
+   "1010data: apis[0] M1 API entry has no aid"
+  ],
+  "A3": [
+   "100-thieves: apis[2] A3 API aid '100-thieves:100-thieves-storefront-json' names an artifact format, not the API",
+   "1f916: apis[36] A3 API aid '1f916:1f916-openapi-json-api' names an artifact format, not the API",
+   "1f916: apis[74] A3 API aid '1f916:1f916-apis-json-api' names an artifact format, not the API",
+   "1gateway-dev: apis[18] A3 API aid '1gateway-dev:1gateway-dev-index-json-api' names an artifact format, not the API",
+   "1gateway-dev: apis[25] A3 API aid '1gateway-dev:1gateway-dev-openapi-json-api' names an artifact format, not the API",
+   "1gateway-dev: apis[32] A3 API aid '1gateway-dev:1gateway-dev-uptime-json-api' names an artifact format, not the API"
+  ],
+  "P2": [
+   "52-north-spatial-information-research-gmbh: P2 provider aid '52-north-spatial-information-research-gmbh' is long (42 chars); prefer domain or acronym-domain",
+   "administrative-conference-of-the-united-states: P2 provider aid 'administrative-conference-of-the-united-states' is long (46 chars); prefer domain or acronym-domain",
+   "adv-working-committee-of-the-surveying-authorities-of-the-laender-of-the-federal-republic-of-germany: P2 provider aid 'adv-working-committee-of-the-surveying-authorities-of-the-laender-of-the-federal-republic-of-germany' is long (100 chars); prefer domain or acronym-domain",
+   "aerospace-information-research-institute-chinese-academy-of-sciences: P2 provider aid 'aerospace-information-research-institute-chinese-academy-of-sciences' is long (68 chars); prefer domain or acronym-domain",
+   "agency-for-toxic-substances-and-disease-registry: P2 provider aid 'agency-for-toxic-substances-and-disease-registry' is long (48 chars); prefer domain or acronym-domain",
+   "agency-of-rural-development-soil-and-water-conservation-ardswc: P2 provider aid 'agency-of-rural-development-soil-and-water-conservation-ardswc' is long (62 chars); prefer domain or acronym-domain"
+  ],
+  "M5": [
+   "5dollarfootballapi: M5 API aid '5dollarfootballapi:5dollarfootballapi-bookmakers-api' appears 2 times in one document",
+   "apache-airflow: M5 API aid 'apache-airflow:apache-airflow-experimental-api' appears 2 times in one document",
+   "arcmira: M5 API aid 'arcmira:arcmira-channels-api' appears 2 times in one document",
+   "atomtickets: M5 API aid 'atomtickets:atomtickets-partner-api' appears 2 times in one document",
+   "blockdaemon: M5 API aid 'blockdaemon:blockdaemon-management-api' appears 2 times in one document",
+   "blockvectra: M5 API aid 'blockvectra:blockvectra-data-api' appears 2 times in one document"
+  ],
+  "A4": [
+   "aave: apis[2] A4 API aid 'aave:sdk-v3' carries a version",
+   "aave: apis[3] A4 API aid 'aave:sdk-v4' carries a version",
+   "active-campaign: apis[0] A4 API aid 'active-campaign:api-v3' carries a version",
+   "acuity-scheduling: apis[0] A4 API aid 'acuity-scheduling:rest-api-v1' carries a version",
+   "akamai: apis[18] A4 API aid 'akamai:akamai-cloudlets-api-v3' carries a version",
+   "akamai: apis[21] A4 API aid 'akamai:akamai-datastream-2-api-v2' carries a version"
+  ],
+  "M4": [
+   "abloatai: apis[1] M4 API aid 'ablo:ablo-branches-api' prefix 'ablo' != provider aid 'abloatai'",
+   "abloatai: apis[2] M4 API aid 'ablo:ablo-claims-api' prefix 'ablo' != provider aid 'abloatai'",
+   "abloatai: apis[3] M4 API aid 'ablo:ablo-commits-api' prefix 'ablo' != provider aid 'abloatai'",
+   "abloatai: apis[4] M4 API aid 'ablo:ablo-credentials-api' prefix 'ablo' != provider aid 'abloatai'",
+   "abloatai: apis[5] M4 API aid 'ablo:ablo-logs-api' prefix 'ablo' != provider aid 'abloatai'",
+   "abloatai: apis[6] M4 API aid 'ablo:ablo-models-api' prefix 'ablo' != provider aid 'abloatai'"
+  ],
+  "A5": [
+   "adalo: apis[0] A5 API aid 'adalo:api' is generic",
+   "adobe-experience-manager: apis[0] A5 API aid 'adobe-experience-manager:apis' is generic",
+   "agile-crm: apis[0] A5 API aid 'agile-crm:rest-api' is generic",
+   "agility-cms: apis[0] A5 API aid 'agility-cms:api' is generic",
+   "airbrake: apis[0] A5 API aid 'airbrake:api' is generic",
+   "aiwatermarkremover-com: apis[0] A5 API aid 'aiwatermarkremover-com:api' is generic"
+  ],
+  "M2": [
+   "administration-for-community-living-acl-: M2 provider aid 'administration-for-community-living-acl-' does not match ^[a-z0-9]+(-[a-z0-9]+)*$",
+   "administration-for-community-living-acl-: apis[0] M2 API aid 'administration-for-community-living-acl-:agid-data-portal' is not <provider-aid>:<api-slug> (bad characters)",
+   "administration-for-community-living-acl-: apis[1] M2 API aid 'administration-for-community-living-acl-:eldercare-locator-content-api' is not <provider-aid>:<api-slug> (bad characters)",
+   "administration-for-native-americans-ana-: M2 provider aid 'administration-for-native-americans-ana-' does not match ^[a-z0-9]+(-[a-z0-9]+)*$",
+   "administration-for-native-americans-ana-: apis[0] M2 API aid 'administration-for-native-americans-ana-:ana-projects-report' is not <provider-aid>:<api-slug> (bad characters)",
+   "administration-for-native-americans-ana-: apis[1] M2 API aid 'administration-for-native-americans-ana-:ana-fy2013-congressional-report' is not <provider-aid>:<api-slug> (bad characters)"
+  ],
+  "M3": [
+   "adv-working-committee-of-the-surveying-authorities-of-the-laender-of-the-federal-republic-of-germany: M3 provider aid 'adv-working-committee-of-the-surveying-authorities-of-the-laender-of-the-federal-republic-of-germany' is 100 chars (2-64)",
+   "aerospace-information-research-institute-chinese-academy-of-sciences: M3 provider aid 'aerospace-information-research-institute-chinese-academy-of-sciences' is 68 chars (2-64)",
+   "blubrry-api-restful-api-for-podcast-publishing-statistics: apis[6] M3 API aid 'blubrry-api-restful-api-for-podcast-publishing-statistics:bl'... is 130 chars (max 128, one line)",
+   "confluent-the-data-streaming-platform: apis[86] M3 API aid 'confluent-the-data-streaming-platform:confluent-the-data-str'... is 129 chars (max 128, one line)",
+   "d: M3 provider aid 'd' is 1 chars (2-64)",
+   "department-of-land-resources-ministry-of-rural-development-government-of-india: M3 provider aid 'department-of-land-resources-ministry-of-rural-development-government-of-india' is 78 chars (2-64)"
+  ],
+  "M6": [
+   "api-pulse-api: M6 provider aid 'api-epulse' != its repository/directory 'api-pulse-api'",
+   "appsmax-rest-api-v1: M6 provider aid 'appsmax.ru:api-catalog' != its repository/directory 'appsmax-rest-api-v1'",
+   "bamboo: M6 provider aid 'investbamboo-com' != its repository/directory 'bamboo'",
+   "bases: M6 provider aid 'api-evangelist-bases' != its repository/directory 'bases'",
+   "blueprints: M6 provider aid 'api-evangelist-blueprints' != its repository/directory 'blueprints'",
+   "cdc: M6 provider aid 'cdc-gov' != its repository/directory 'cdc'"
+  ],
+  "M7-provider-collision": [
+   "investbamboo-com: ['bamboo', 'investbamboo-com']",
+   "cdc-gov: ['cdc', 'cdc-gov']",
+   "oracle-health: ['cerner', 'oracle-health']",
+   "embeddable: ['concept-embeddable', 'embeddable']",
+   "plans: ['concept-plans', 'plans']",
+   "proxy: ['concept-proxy', 'proxy']",
+   "serverless: ['concept-serverless', 'serverless']",
+   "api-evangelist-conversations: ['conversations', 'solutions']",
+   "infini-ai: ['docs', 'infini-ai']",
+   "emplifi-io: ['emplifi-io', 'socialbakers']"
+  ],
+  "M7-api-collision": [
+   "microsoft-active-directory:microsoft-active-directory-directory-roles-api: ['active-directory', 'microsoft-active-directory']",
+   "automatic-data-processing:event-notifications-api: ['adp', 'automatic-data-processing']",
+   "automatic-data-processing:embedded-payroll: ['adp', 'automatic-data-processing']",
+   "google-apigee:google-apigee: ['apigee', 'google-apigee']",
+   "google-apigee:google-apigee-connect-api: ['apigee', 'google-apigee']",
+   "google-apigee:google-apigee-api-hub: ['apigee', 'google-apigee']",
+   "google-apigee:google-apigee-analytics-api: ['apigee', 'google-apigee']",
+   "atlassian-confluence:confluence-cloud-graphql-api: ['atlassian-confluence', 'confluence']",
+   "atlassian-confluence:atlassian-rovo-mcp-server: ['atlassian-confluence', 'confluence']",
+   "atlassian-jira:atlassian-jira-issue-comments-api: ['atlassian-jira', 'jira']"
+  ]
+ }
+}

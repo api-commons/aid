@@ -1,0 +1,60 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://raw.githubusercontent.com/api-commons/aid/main/aid-json-schema.yml
+title: APIs.json aid (API Identifier)
+description: >-
+  The aid property of an APIs.json / apis.yml document, at the top (provider) level and on
+  every entry in apis[]. This schema enforces the MUST rules that a single document can
+  check on its own: presence, grammar and length. Rules that compare values -- that an API
+  aid's prefix equals the document's provider aid, that aids are unique within the document
+  and across a catalog -- are enforced by aid.py, because JSON Schema cannot compare two
+  fields. See README.md for the full specification.
+$defs:
+  segment:
+    description: >-
+      Lowercase ASCII letters and digits in runs joined by single hyphens. No dots,
+      underscores, spaces, uppercase, leading or trailing hyphens, or doubled hyphens.
+    type: string
+    pattern: ^[a-z0-9]+(-[a-z0-9]+)*$
+  providerAid:
+    description: >-
+      Identifies one provider in a catalog. One segment, 2-64 characters. SHOULD be derived
+      from the provider's registrable domain (stripe.com -> stripe, typesafe.ai -> typesafe-ai).
+    allOf:
+      - $ref: '#/$defs/segment'
+      - minLength: 2
+        maxLength: 64
+  apiAid:
+    description: >-
+      Identifies one API. The provider aid, a single colon, and an API slug that names the
+      API itself. At most 128 characters, on one line. Additional colon-separated segments
+      are reserved and MUST NOT be used in this version.
+    type: string
+    maxLength: 128
+    pattern: ^[a-z0-9]+(-[a-z0-9]+)*:[a-z0-9]+(-[a-z0-9]+)*$
+  aidAliases:
+    description: >-
+      Aids this entity was previously published under. A catalog MUST resolve each alias to
+      the current aid and MUST NOT reissue it to a different entity.
+    type: array
+    uniqueItems: true
+    items:
+      anyOf:
+        - $ref: '#/$defs/providerAid'
+        - $ref: '#/$defs/apiAid'
+type: object
+required: [aid]
+properties:
+  aid:
+    $ref: '#/$defs/providerAid'
+  x-aid-aliases:
+    $ref: '#/$defs/aidAliases'
+  apis:
+    type: array
+    items:
+      type: object
+      required: [aid]
+      properties:
+        aid:
+          $ref: '#/$defs/apiAid'
+        x-aid-aliases:
+          $ref: '#/$defs/aidAliases'

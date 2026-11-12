@@ -1,0 +1,9 @@
+# Negative control: every line here breaks a MUST rule.
+aid: Example.Weather
+apis:
+  - name: no aid at all
+  - aid: forecasts-api
+  - aid: other-provider:forecasts
+  - aid: example-weather:a:b
+  - aid: example-weather:dup
+  - aid: example-weather:dup
