@@ -3,6 +3,9 @@
 
   python3 aid.py lint apis.yml [more ...]     check documents; exit 1 on any MUST failure
   python3 aid.py census <dir> [--json out]    check every <dir>/*/apis.yml and summarise
+        [--exclude FILE]   skip the directories named in FILE (one per line, # comments): a
+                           catalog's retired or duplicate checkouts are not live documents
+        [--skip-type T]    skip documents whose x-type is T (repeatable), e.g. index
   python3 aid.py derive <domain>              suggest a provider aid for a domain
   python3 aid.py slug <provider-aid> "<API name>"   suggest an API aid
 
@@ -140,7 +143,7 @@ def lint(paths):
     return 1 if failed else 0
 
 
-def census(root, out=None):
+def census(root, out=None, exclude=(), skip_types=()):
     rule = lambda s: s.split(" ")[0] if s[0] in "MAP" else s.split(" ")[1]
     C, R = collections.Counter(), collections.Counter()
     ex = collections.defaultdict(list)
@@ -149,12 +152,19 @@ def census(root, out=None):
         p = os.path.join(root, d, "apis.yml")
         if d.startswith((".", "_", "0-")) or not os.path.isfile(p):
             continue
-        C["documents"] += 1
+        if d in exclude:
+            C["excluded"] += 1
+            continue
         try:
             doc = load(p)
         except yaml.YAMLError:
+            C["documents"] += 1
             C["yaml_errors"] += 1
             continue
+        if skip_types and isinstance(doc, dict) and isinstance(doc.get("x-type"), str) and doc["x-type"] in skip_types:
+            C["skipped_type"] += 1
+            continue
+        C["documents"] += 1
         errs, warns, prov, apis = check_document(doc, d)
         C["api_aids"] += len(apis)
         C["api_entries"] += len([a for a in (doc.get("apis") or []) if isinstance(a, dict)]) if isinstance(doc, dict) else 0
@@ -190,7 +200,12 @@ if __name__ == "__main__":
         sys.exit(lint(rest))
     if cmd == "census":
         out = rest[rest.index("--json") + 1] if "--json" in rest else None
-        sys.exit(census(rest[0], out))
+        exclude = set()
+        if "--exclude" in rest:
+            with open(rest[rest.index("--exclude") + 1]) as f:
+                exclude = {ln.split("#", 1)[0].strip() for ln in f} - {""}
+        skip = {rest[i + 1] for i, x in enumerate(rest) if x == "--skip-type"}
+        sys.exit(census(rest[0], out, exclude, skip))
     if cmd == "derive":
         print(derive_provider_aid(rest[0]))
     elif cmd == "slug":
